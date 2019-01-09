@@ -10,7 +10,7 @@
     <pre id="sql" class="prettyprint lang-sql"></pre>
     <script>
       function get(param) {
-        if (param = (new RegExp('[?&]'+encodeURIComponent(param)+'=([^&]*)')).exec(location.search)) {
+        if (param = new RegExp(`[?&]${encodeURIComponent(param)}=([^&]*)`).exec(location.search)) {
           return decodeURIComponent(param[1]);
         }
       }
