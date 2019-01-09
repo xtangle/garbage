@@ -10,13 +10,18 @@
   </head>
   <body>
     <script>
-      function get(param) {
-        if (param = new RegExp(`[?&]${encodeURIComponent(param)}=([^&]*)`).exec(location.search)) {
-          return decodeURIComponent(param[1]);
+      function getParam(key) {
+        if (key = new RegExp(`[?&]${encodeURIComponent(key)}=([^&]*)`).exec(location.search)) {
+          return decodeURIComponent(key[1]);
         }
       }
-      document.body.innerHTML += `<pre>${get('text') || ''}</pre>`;
-      document.body.innerHTML += `<pre class="prettyprint lang-sql">${sqlFormatter.format(get('sql') || '')}</pre>`;
+      function appendPre(htmlText, htmlClass) {
+        if (htmlText) {
+          document.body.innerHTML += `<pre class="${htmlClass : ''}">${htmlText}</pre>`;
+        }
+      }
+      appendPre(getParam('text'));
+      appendPre(sqlFormatter.format(getParam('sql') || ''), 'prettyprint lang-sql');
     </script>
   </body>
 </html>
