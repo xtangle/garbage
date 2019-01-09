@@ -3,8 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+      function get(name) {
+        if (name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+          return decodeURIComponent(name[1]);
+        }
+      }
+      
+      console.log(get('meow'));
+    </script>
   </head>
   <body>
-    <h1>Hello world!</h1>
   </body>
 </html>
