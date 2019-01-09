@@ -5,8 +5,6 @@
     <title>garbage</title>
   </head>
   <body>
-    <pre id="sql"></pre>
-    <pre id="text"></pre>
     <script type="text/javascript" src="https://unpkg.com/sql-formatter@latest/dist/sql-formatter.min.js"></script>
     <script>
       function get(param) {
@@ -14,8 +12,8 @@
           return decodeURIComponent(param[1]);
         }
       }
-      document.getElementById('sql').innerHTML = sqlFormatter.format(get('sql') || '');
-      document.getElementById('text').innerHTML = get('text') || '';
+      document.body.innerHTML += sqlFormatter.format(get('sql') || '');
+      document.body.innerHTML += get('text') || '';
     </script>
   </body>
 </html>
