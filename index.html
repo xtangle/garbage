@@ -17,7 +17,7 @@
       }
       function appendPre(htmlText, htmlClass) {
         if (htmlText) {
-          document.body.innerHTML += `<pre class="${htmlClass : ''}">${htmlText}</pre>`;
+          document.body.innerHTML += `<pre class="${htmlClass || ''}">${htmlText}</pre>`;
         }
       }
       appendPre(getParam('text'));
