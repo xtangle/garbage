@@ -10,9 +10,12 @@
           return decodeURIComponent(name[1]);
         }
       }
-      document.body.insertAdjacentHTML('beforeend', `<pre class="prettyprint lang-sql">${get('sql')}</pre>`);
     </script>
   </head>
   <body>
+    <pre id="sql" class="prettyprint lang-sql"></pre>
+    <script>
+      document.getElementById('sql').innerHTML = get('sql');
+    </script>
   </body>
 </html>
