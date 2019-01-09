@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <title>garbage</title>
+    <script type="text/javascript" src="https://unpkg.com/sql-formatter@latest/dist/sql-formatter.min.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/lang-sql.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
   </head>
   <body>
-    <script type="text/javascript" src="https://unpkg.com/sql-formatter@latest/dist/sql-formatter.min.js"></script>
     <script>
       function get(param) {
         if (param = new RegExp(`[?&]${encodeURIComponent(param)}=([^&]*)`).exec(location.search)) {
           return decodeURIComponent(param[1]);
         }
       }
-      document.body.innerHTML += `<pre>${sqlFormatter.format(get('sql') || '')}</pre>`;
       document.body.innerHTML += `<pre>${get('text') || ''}</pre>`;
+      document.body.innerHTML += `<pre class="prettyprint lang-sql">${sqlFormatter.format(get('sql') || '')}</pre>`;
     </script>
   </body>
 </html>
