@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>garbage</title>
-    <script type="text/javascript" src="https://unpkg.com/sql-formatter@latest/dist/sql-formatter.min.js"></script>
   </head>
   <body>
     <pre id="sql"></pre>
+    <script type="text/javascript" src="https://unpkg.com/sql-formatter@latest/dist/sql-formatter.min.js"></script>
     <script>
       function get(param) {
         if (param = new RegExp(`[?&]${encodeURIComponent(param)}=([^&]*)`).exec(location.search)) {
