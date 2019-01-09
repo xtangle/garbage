@@ -12,12 +12,10 @@
       function get(param) {
         if (param = new RegExp(`[?&]${encodeURIComponent(param)}=([^&]*)`).exec(location.search)) {
           return decodeURIComponent(param[1]);
-        } else {
-          return '';
         }
       }
-      document.getElementById('sql').innerHTML = sqlFormatter.format(get('sql'));
-      document.getElementById('text').innerHTML = get('text');
+      document.getElementById('sql').innerHTML = sqlFormatter.format(get('sql') || '');
+      document.getElementById('text').innerHTML = get('text') || '';
     </script>
   </body>
 </html>
