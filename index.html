@@ -13,8 +13,8 @@
           return decodeURIComponent(param[1]);
         }
       }
-      document.body.innerHTML += sqlFormatter.format(get('sql') || '');
-      document.body.innerHTML += get('text') || '';
+      document.body.innerHTML += `<pre>${sqlFormatter.format(get('sql') || '')}</pre>`;
+      document.body.innerHTML += `<pre>${get('text') || ''}</pre>`;
     </script>
   </body>
 </html>
